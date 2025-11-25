@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Valitse varmuuskopiopalvelu</string>
     <string name="berry_black_theme_title">Kokonaan musta</string>
     <string name="berry_black_theme_summary">Kokonaan musta tausta tummalle teemalle</string>
-    <string name="lineagelicense_title">LineageOSin lakiasiat</string>
+    <string name="lineagelicense_title">SimpleOSin lakiasiat</string>
     <string name="show_dev_on_cm">Kehittäjäasetukset ovat nyt käytössä!</string>
     <string name="show_dev_already_cm">Olet jo ottanut kehittäjäasetukset käyttöön.</string>
     <string name="status_bar_double_tap_to_sleep_title">Sammuta näyttö napauttamalla</string>

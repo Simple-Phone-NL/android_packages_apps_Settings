@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Выберите поставщика резервного копирования</string>
     <string name="berry_black_theme_title">Натурально черный</string>
     <string name="berry_black_theme_summary">Натурально черный фон для темной темы</string>
-    <string name="lineagelicense_title">Политика конфиденциальности LineageOS</string>
+    <string name="lineagelicense_title">Политика конфиденциальности SimpleOS</string>
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {Вы в # шаге от включения настроек разработчика.}
       other   {Вы в # шагах от включения настроек разработчика.}

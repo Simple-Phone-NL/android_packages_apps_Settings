@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
     <string name="adb_enable_summary_root">Permite la execución de la depuración d\'Android como root</string>
     <string name="berry_black_theme_title">Prietu puro</string>
     <string name="berry_black_theme_summary">Un fondu en prieto puro pal estilu «Escuridá»</string>
-    <string name="lineagelicense_title">Información llegal de LineageOS</string>
+    <string name="lineagelicense_title">Información llegal de SimpleOS</string>
     <string name="show_dev_countdown_cm">{count, plural,
       one {}=1      {Tas a # calcu d\'activar la configuración pa desendolcadores.}
       other   {Tas a # calcos d\'activar la configuración pa desendolcadores.}

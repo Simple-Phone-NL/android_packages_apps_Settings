@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
     <string name="backup_transport_title">Pilih penyedia cadangan</string>
     <string name="berry_black_theme_title">Hitam</string>
     <string name="berry_black_theme_summary">Latar belakang hitam untuk tema gelap</string>
-    <string name="lineagelicense_title">Hukum LineageOS</string>
+    <string name="lineagelicense_title">Hukum SimpleOS</string>
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {Sekarang Anda # langkah lagi untuk mengaktifkan opsi pengembang}
       other   {Sekarang anda # langkah lagi untuk mengaktifkan opsi pengembang}

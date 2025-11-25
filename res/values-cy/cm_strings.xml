@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Dewis darparwr wrth gefn</string>
     <string name="berry_black_theme_title">Du pur</string>
     <string name="berry_black_theme_summary">Cefndir du pur i\'r thema dywyll</string>
-    <string name="lineagelicense_title">Cyfreithiol LineageOS</string>
+    <string name="lineagelicense_title">Cyfreithiol SimpleOS</string>
     <string name="show_dev_on_cm">Rwyt wedi galluogi gosodiadau datblygu!</string>
     <string name="show_dev_already_cm">Dim angen; rwyt eisoes wedi galluogi gosodiadau datblygu.</string>
     <string name="status_bar_double_tap_to_sleep_title">Tapio i gysgu</string>

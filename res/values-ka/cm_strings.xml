@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">აირჩიეთ მარქაფის მომსახურება</string>
     <string name="berry_black_theme_title">სადა შავი</string>
     <string name="berry_black_theme_summary">სადა შავი ფონი მუქი იერსახისთვის</string>
-    <string name="lineagelicense_title">LineageOS – სამართლებრივი</string>
+    <string name="lineagelicense_title">SimpleOS – სამართლებრივი</string>
     <string name="show_dev_countdown_cm">{count, plural,
       one {}=1      {# ნაბიჯი შემმუშავებლის პარამეტრების ამოქმედებამდე.}
       other   {# ნაბიჯი შემმუშავებლის პარამეტრების ამოქმედებამდე.}

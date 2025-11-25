@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Veldu öryggisafritunarveitu</string>
     <string name="berry_black_theme_title">Hreint svart</string>
     <string name="berry_black_theme_summary">Hreinn svartur bakgrunnur í dökku þema</string>
-    <string name="lineagelicense_title">Lagalegir fyrirvarar LineageOS</string>
+    <string name="lineagelicense_title">Lagalegir fyrirvarar SimpleOS</string>
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {Þú ert núna # skref frá því að virkja þróunarstillingar.}
       other   {Þú ert núna # skref frá því að virkja þróunarstillingar.}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The LineageOS Project
+     Copyright (C) 2017-2023 The SimpleOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="adb_enable_root">Root-debugging</string>
     <string name="adb_enable_summary_root">Android-debugging as root tastean</string>
-    <string name="lineagelicense_title">Juridyske ynformaasje fan LineageOS</string>
+    <string name="lineagelicense_title">Juridyske ynformaasje fan SimpleOS</string>
     <string name="show_dev_on_cm">Jo hawwe de opsjes foar ûntwikkelers ynskeakele!</string>
     <string name="show_dev_already_cm">Net nedich jo hawwe de opsjes foar ûntwikkelers al ynskeakele.</string>
     <string name="status_bar_double_tap_to_sleep_title">Dûbeld tikke foar sliepstân</string>
