@@ -35,7 +35,7 @@
         android:title="@string/license_title"
         settings:controller="com.android.settings.deviceinfo.legal.LicensePreferenceController" />
 
-    <!-- SimpleOS License information -->
+    <!-- LineageOS License information -->
     <Preference
         android:key="lineage_license"
         android:title="@string/lineagelicense_title"

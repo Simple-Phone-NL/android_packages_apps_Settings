@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineagelicense_title">SimpleOS ಕಾನೂನು</string>
+    <string name="lineagelicense_title">LineageOS ಕಾನೂನು</string>
     <string name="show_dev_on_cm">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಘಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ!</string>
     <string name="show_dev_already_cm">ಅಗತ್ಯವಿಲ್ಲ, ನೀವು ಈಗಾಗಲೇ ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ.</string>
     <string name="status_bar_double_tap_to_sleep_title">ನಿದ್ರಿಸಲು ಮುಟ್ಟು</string>

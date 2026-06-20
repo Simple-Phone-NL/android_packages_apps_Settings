@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">காப்பு வழங்கியைத் தேர்ந்தெடுக்க</string>
     <string name="berry_black_theme_title">மாசற்ற கருமை</string>
     <string name="berry_black_theme_summary">இருள் தோற்றத்திற்கு மாசற்ற கருமை பின்னணி</string>
-    <string name="lineagelicense_title">SimpleOS சட்டம்</string>
+    <string name="lineagelicense_title">LineageOS சட்டம்</string>
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {நீர் # படி தொலைவில் உள்ளீர், வளர்ச்சி அமைவுகளை இயக்குவதற்கு.}
       other   {நீர் # படி தொலைவில் உள்ளீர், வளர்ச்சி அமைவுகளை இயக்குவதற்கு.}
@@ -99,7 +99,7 @@
     <string name="battery_health_over_voltage">மிகைமின்னழுத்தம்</string>
     <string name="battery_health_unspecified_failure">குறிப்பிடப்படாத செயலிழப்பு</string>
     <string name="battery_health_cold">குளிர்ச்சி</string>
-    <string name="battery_health_unknown">தெரியவில்லை</string>
+    <string name="battery_health_unknown">அறியா</string>
     <string name="battery_temperature">வெப்பநிலை</string>
     <string name="battery_voltage">மின்னழுத்தம்</string>
     <string name="battery_charge_counter_summary">%1$d mAh</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineagelicense_title">Rechtlech Hiweiser iwwer SimpleOS</string>
+    <string name="lineagelicense_title">Rechtlech Hiweiser iwwer LineageOS</string>
     <string name="show_dev_on_cm">Du hues d\'Entwéckleroptiounen aktivéiert!</string>
     <string name="show_dev_already_cm">Net néideg, du hues d\'Entwécklungsoptioune schonn aktivéiert.</string>
     <string name="high_touch_sensitivity_title">Héich Beréierungsempfindlechkeet</string>

@@ -28,8 +28,7 @@ import com.android.settings.core.BasePreferenceController;
 
 public class LineageLicensePreferenceController extends BasePreferenceController {
 
-    private static final String PROPERTY_LINEAGE_LICENSE_URL = "ro.simpleoslegal.url";
-    private static final String DEFAULT_SIMPLE_OS_LEGAL_URL = "https://simplephone.nl/legal";
+    private static final String PROPERTY_LINEAGE_LICENSE_URL = "ro.lineagelegal.url";
 
     public LineageLicensePreferenceController(Context context, String key) {
         super(context, key);
@@ -59,7 +58,6 @@ public class LineageLicensePreferenceController extends BasePreferenceController
 
     private Intent getIntent() {
         return new Intent(Intent.ACTION_VIEW,
-                Uri.parse(SystemProperties.get(PROPERTY_LINEAGE_LICENSE_URL,
-                        DEFAULT_SIMPLE_OS_LEGAL_URL)));
+                Uri.parse(SystemProperties.get(PROPERTY_LINEAGE_LICENSE_URL)));
     }
 }

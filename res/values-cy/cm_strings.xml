@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Dewis darparwr wrth gefn</string>
     <string name="berry_black_theme_title">Du pur</string>
     <string name="berry_black_theme_summary">Cefndir du pur i\'r thema dywyll</string>
-    <string name="lineagelicense_title">Cyfreithiol SimpleOS</string>
+    <string name="lineagelicense_title">Cyfreithiol LineageOS</string>
     <string name="show_dev_on_cm">Rwyt wedi galluogi gosodiadau datblygu!</string>
     <string name="show_dev_already_cm">Dim angen; rwyt eisoes wedi galluogi gosodiadau datblygu.</string>
     <string name="status_bar_double_tap_to_sleep_title">Tapio i gysgu</string>
@@ -82,4 +82,16 @@
     <string name="fast_charging_title">Gwefru cyflym</string>
     <string name="fast_charging_summary">Analluoga i leihau\'r gwres sy\'n cael ei gynhyrchu gan y ddyfais wrth wefru neu i ymestyn oes y batri</string>
     <string name="storage_warning_internal">Rhybudd: Mae\'n bosib na fydd yr opsiwn hwn yn gweithio\'n iawn ac yn arwain at golli data, felly ni argymhellir!</string>
+    <string name="battery_technology">Technoleg</string>
+    <string name="battery_health">Iechyd</string>
+    <string name="battery_health_good">Da</string>
+    <string name="battery_health_overheat">Gor-boethi</string>
+    <string name="battery_health_dead">Marw</string>
+    <string name="battery_health_unspecified_failure">Methiant anhysbys</string>
+    <string name="battery_health_cold">Oer</string>
+    <string name="battery_health_unknown">Anhysybys</string>
+    <string name="battery_temperature">Tymheredd</string>
+    <string name="battery_voltage">Foltedd</string>
+    <string name="battery_charge_counter_summary">%1$d mAh</string>
+    <string name="battery_design_capacity">Capasiti dylunio</string>
 </resources>

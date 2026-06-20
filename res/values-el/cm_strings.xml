@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Επιλέξτε πάροχο αντιγράφων ασφαλείας</string>
     <string name="berry_black_theme_title">Αμιγές μαύρο</string>
     <string name="berry_black_theme_summary">Αμιγές μαύρο παρασκήνιο για το σκοτεινό θέμα</string>
-    <string name="lineagelicense_title">Νομικές πληροφορίες SimpleOS</string>
+    <string name="lineagelicense_title">Νομικές πληροφορίες LineageOS</string>
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {Βρίσκεστε πλέον # βήμα μακριά από την ενεργοποίηση των ρυθμίσεων προγραμματιστή.}
       other   {Βρίσκεστε πλέον # βήματα μακριά από την ενεργοποίηση των ρυθμίσεων προγραμματιστή.}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineagelicense_title">SimpleOS ലീഗല്‍</string>
+    <string name="lineagelicense_title">LineageOS ലീഗല്‍</string>
     <string name="show_dev_on_cm">നിങ്ങൾ ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കി!</string>
     <string name="show_dev_already_cm">ആവശ്യമില്ല, നിങ്ങൾ ഇതിനകം ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കി.</string>
     <string name="high_touch_sensitivity_title">ഉയര്‍ന്ന സ്പര്‍ശന സംവേദനക്ഷമത</string>

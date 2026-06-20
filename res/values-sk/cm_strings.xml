@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
     <string name="backup_transport_title">Vybrať poskytovateľa zálohovania</string>
     <string name="berry_black_theme_title">Čistá čierna</string>
     <string name="berry_black_theme_summary">Čisto čierne pozadie pre tmavú tému vzhľadu</string>
-    <string name="lineagelicense_title">Právne informácie SimpleOS</string>
+    <string name="lineagelicense_title">Právne informácie LineageOS</string>
     <string name="show_dev_on_cm">Povolili ste možnosti pre vývojárov!</string>
     <string name="show_dev_already_cm">Netreba, už ste povolili možnosti pre vývojárov.</string>
     <string name="status_bar_double_tap_to_sleep_title">Kliknutím uspať</string>
