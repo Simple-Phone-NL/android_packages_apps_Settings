@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
     <string name="adb_enable_summary_root">Tillad kørsel af Android fejlretning som \'root\'</string>
     <string name="backup_transport_setting_label">Skift backup udbyder</string>
     <string name="backup_transport_title">Vælg backup udbyder</string>
-    <string name="lineagelicense_title">SimpleOS-juridisk</string>
+    <string name="lineagelicense_title">LineageOS-juridisk</string>
     <string name="show_dev_on_cm">Du har aktiveret udvikler-indstillinger!</string>
     <string name="show_dev_already_cm">Behøves ikke.; du har allerede aktiveret udvikler-indstillinger.</string>
     <string name="status_bar_double_tap_to_sleep_title">Tryk for at slumre</string>

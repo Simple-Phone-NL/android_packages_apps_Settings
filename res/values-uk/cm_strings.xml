@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     <string name="adb_enable_summary_root">Дозволити налагодження Android із правами суперкористувача</string>
     <string name="backup_transport_setting_label">Змінити провайдера резервного копіювання</string>
     <string name="backup_transport_title">Оберіть провайдера резервного копіювання</string>
-    <string name="lineagelicense_title">Політика конфіденційності SimpleOS</string>
+    <string name="lineagelicense_title">Політика конфіденційності LineageOS</string>
     <string name="show_dev_on_cm">Ви увімкнули налаштування розробника!</string>
     <string name="show_dev_already_cm">Це зайве, параметри розробки вже ввімкнено.</string>
     <string name="status_bar_double_tap_to_sleep_title">Торкніться для сну</string>

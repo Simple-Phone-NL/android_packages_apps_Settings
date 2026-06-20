@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017-2023 The SimpleOS Project
+     Copyright (C) 2017-2023 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     <string name="advanced_keyboard_settings_title">Iɣewwaṛen leqqayen</string>
     <string name="berry_black_theme_title">Aberkan zeddigen</string>
     <string name="berry_black_theme_summary">Agilal aberkan zeddigen i usentel aberkan</string>
-    <string name="lineagelicense_title">Talɣut tusḍift n SimpleOS</string>
+    <string name="lineagelicense_title">Talɣut tusḍift n LineageOS</string>
     <string name="show_dev_on_cm">Tremdeḍ iγewwaṛen n tneflit!</string>
     <string name="show_dev_already_cm">Ulayɣer, tremdeḍ yakan iγewwaṛen n tneflit.</string>
     <string name="status_bar_double_tap_to_sleep_title">Tekki akken ad yeṭṭes</string>
