@@ -32,8 +32,6 @@ import static com.android.settings.sim.SimDialogActivity.DATA_PICK;
 import static com.android.settings.sim.SimDialogActivity.INVALID_PICK;
 import static com.android.settings.sim.SimSelectNotification.ENABLE_MMS_NOTIFICATION_CHANNEL;
 import static com.android.settings.sim.SimSelectNotification.ENABLE_MMS_NOTIFICATION_ID;
-import static com.android.settings.sim.SimSelectNotification.SIM_WARNING_NOTIFICATION_CHANNEL;
-import static com.android.settings.sim.SimSelectNotification.SIM_WARNING_NOTIFICATION_ID;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -113,9 +111,6 @@ public class SimSelectNotificationTest {
     private final String mFakeNotificationSummary = "fake_notification_Summary";
 
     // Dual CDMA combination notification.
-    private final String mFakeDualCdmaWarningChannelTitle = "fake_dual_cdma_warning_channel_title";
-    private final String mFakeDualCdmaWarningTitle = "fake_dual_cdma_warning_title";
-    private final String mFakeDualCdmaWarningSummary = "fake_dual_cdma_warning_summary";
     private final String mSimCombinationName = " carrier1 & carrier 2";
 
     private int mSubId = 1;
@@ -161,13 +156,6 @@ public class SimSelectNotificationTest {
                 .thenReturn(mFakeNotificationChannelTitle);
         when(mResources.getString(R.string.enable_mms_notification_summary,
                 mFakeDisplayName)).thenReturn(mFakeNotificationSummary);
-
-        when(mResources.getText(R.string.dual_cdma_sim_warning_notification_channel_title))
-                .thenReturn(mFakeDualCdmaWarningChannelTitle);
-        when(mResources.getText(R.string.sim_combination_warning_notification_title))
-                .thenReturn(mFakeDualCdmaWarningTitle);
-        when(mResources.getString(R.string.dual_cdma_sim_warning_notification_summary,
-                mSimCombinationName)).thenReturn(mFakeDualCdmaWarningSummary);
 
         when(mResources.getDisplayMetrics()).thenReturn(mDisplayMetrics);
         mDisplayMetrics.density = 1.5f;
@@ -275,6 +263,7 @@ public class SimSelectNotificationTest {
                 .isNotEqualTo(0);
         assertThat(capturedIntent.getIntExtra(SimDialogActivity.DIALOG_TYPE_KEY, INVALID_PICK))
                 .isEqualTo(DATA_PICK);
+        verify(mNotificationManager, never()).createNotificationChannel(any());
     }
 
     @Test
@@ -294,7 +283,7 @@ public class SimSelectNotificationTest {
     }
 
     @Test
-    public void onReceivePrimarySubListChange_DualCdmaWarning_notificationShouldSend() {
+    public void onReceivePrimarySubListChange_DualCdmaWarning_notificationShouldNotSend() {
         Intent intent = new Intent(TelephonyManager.ACTION_PRIMARY_SUBSCRIPTION_LIST_CHANGED);
 
         intent.putExtra(EXTRA_SIM_COMBINATION_NAMES, mSimCombinationName);
@@ -303,22 +292,6 @@ public class SimSelectNotificationTest {
 
         SimSelectNotification.onPrimarySubscriptionListChanged(mContext, intent);
 
-        // Capture the notification channel created and verify its fields.
-        ArgumentCaptor<NotificationChannel> nc = ArgumentCaptor.forClass(NotificationChannel.class);
-        verify(mNotificationManager).createNotificationChannel(nc.capture());
-
-        assertThat(nc.getValue().getId()).isEqualTo(SIM_WARNING_NOTIFICATION_CHANNEL);
-        assertThat(nc.getValue().getName()).isEqualTo(mFakeDualCdmaWarningChannelTitle);
-        assertThat(nc.getValue().getImportance()).isEqualTo(IMPORTANCE_HIGH);
-
-        // Capture the notification it notifies and verify its fields.
-        ArgumentCaptor<Notification> notification = ArgumentCaptor.forClass(Notification.class);
-        verify(mNotificationManager).notify(
-                eq(SIM_WARNING_NOTIFICATION_ID), notification.capture());
-        assertThat(notification.getValue().extras.getCharSequence(Notification.EXTRA_TITLE))
-                .isEqualTo(mFakeDualCdmaWarningTitle);
-        assertThat(notification.getValue().extras.getCharSequence(Notification.EXTRA_BIG_TEXT))
-                .isEqualTo(mFakeDualCdmaWarningSummary);
-        assertThat(notification.getValue().contentIntent).isNotNull();
+        verify(mNotificationManager, never()).createNotificationChannel(any());
     }
 }

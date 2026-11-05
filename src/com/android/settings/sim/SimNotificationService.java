@@ -16,16 +16,11 @@
 
 package com.android.settings.sim;
 
-import android.app.job.JobInfo;
 import android.app.job.JobParameters;
-import android.app.job.JobScheduler;
 import android.app.job.JobService;
-import android.content.ComponentName;
 import android.content.Context;
 import android.os.PersistableBundle;
 import android.util.Log;
-
-import com.android.settings.R;
 
 /** A JobService sends SIM notifications. */
 public class SimNotificationService extends JobService {
@@ -34,24 +29,15 @@ public class SimNotificationService extends JobService {
     private static final String EXTRA_NOTIFICATION_TYPE = "notification_type";
 
     /**
-     * Schedules a service to send SIM push notifications.
+     * Simple Phone: SIM push notifications are unnecessary noise, so nothing is scheduled. The SIM
+     * switch or activation itself still happens in the caller.
      *
      * @param context
-     * @param notificationType indicates which SIM notification to send.
+     * @param notificationType indicates which SIM notification would have been sent.
      */
     public static void scheduleSimNotification(
             Context context, @SimActivationNotifier.NotificationType int notificationType) {
-        final JobScheduler jobScheduler =
-                context.getApplicationContext().getSystemService(JobScheduler.class);
-        final ComponentName component =
-                new ComponentName(context.getApplicationContext(), SimNotificationService.class);
-        PersistableBundle extra = new PersistableBundle();
-        extra.putInt(EXTRA_NOTIFICATION_TYPE, notificationType);
-
-        jobScheduler.schedule(
-                new JobInfo.Builder(R.integer.sim_notification_send, component)
-                        .setExtras(extra)
-                        .build());
+        Log.d(TAG, "Skipping SIM notification of type " + notificationType);
     }
 
     @Override

@@ -26,7 +26,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -122,13 +121,13 @@ public class BluetoothKeyMissingReceiverTest {
 
     @Test
     @EnableFlags(Flags.FLAG_ENABLE_BLUETOOTH_KEY_MISSING_DIALOG)
-    public void broadcastReceiver_background_showNotification() {
+    public void broadcastReceiver_background_doNothing() {
         Intent intent = spy(new Intent(BluetoothDevice.ACTION_KEY_MISSING));
         when(intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)).thenReturn(mBluetoothDevice);
         BluetoothKeyMissingReceiver bluetoothKeyMissingReceiver = getReceiver(intent);
         bluetoothKeyMissingReceiver.onReceive(mContext, intent);
 
-        verify(mNm).notify(eq(android.R.drawable.stat_sys_data_bluetooth), any(Notification.class));
+        verifyNoInteractions(mNm);
         verify(mContext, never()).startActivityAsUser(any(), any());
     }
 

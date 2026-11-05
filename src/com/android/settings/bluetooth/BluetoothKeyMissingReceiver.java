@@ -16,10 +16,6 @@
 
 package com.android.settings.bluetooth;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -29,9 +25,6 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
-
-import com.android.settings.R;
 import com.android.settings.flags.Flags;
 
 /**
@@ -40,8 +33,6 @@ import com.android.settings.flags.Flags;
  */
 public final class BluetoothKeyMissingReceiver extends BroadcastReceiver {
     private static final String TAG = "BtKeyMissingReceiver";
-    private static final String CHANNEL_ID = "bluetooth_notification_channel";
-    private static final int NOTIFICATION_ID = android.R.drawable.stat_sys_data_bluetooth;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -62,8 +53,8 @@ public final class BluetoothKeyMissingReceiver extends BroadcastReceiver {
                 Log.d(TAG, "Show key missing dialog:" + device);
                 context.startActivityAsUser(pairingIntent, UserHandle.CURRENT);
             } else {
-                Log.d(TAG, "Show key missing notification: " + device);
-                showNotification(context, device);
+                // Simple Phone: no notification, the dialog is only shown while in the foreground.
+                Log.d(TAG, "Skip key missing dialog: " + device);
             }
         }
     }
@@ -81,42 +72,5 @@ public final class BluetoothKeyMissingReceiver extends BroadcastReceiver {
             Context context, BluetoothDevice device, PowerManager powerManager) {
         return LocalBluetoothPreferences.shouldShowDialogInForeground(context, device)
                 && powerManager.isInteractive();
-    }
-
-    private void showNotification(Context context, BluetoothDevice bluetoothDevice) {
-        NotificationManager nm = context.getSystemService(NotificationManager.class);
-        NotificationChannel notificationChannel =
-                new NotificationChannel(
-                        CHANNEL_ID,
-                        context.getString(R.string.bluetooth),
-                        NotificationManager.IMPORTANCE_HIGH);
-        nm.createNotificationChannel(notificationChannel);
-
-        PendingIntent pairIntent =
-                PendingIntent.getActivity(
-                        context,
-                        0,
-                        getKeyMissingDialogIntent(context, bluetoothDevice),
-                        PendingIntent.FLAG_ONE_SHOT
-                                | PendingIntent.FLAG_UPDATE_CURRENT
-                                | PendingIntent.FLAG_IMMUTABLE);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,
-                CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.stat_sys_data_bluetooth)
-                .setTicker(context.getString(R.string.bluetooth_notif_ticker))
-                .setLocalOnly(true);
-        builder.setContentTitle(
-                        context.getString(
-                                R.string.bluetooth_key_missing_title, bluetoothDevice.getName()))
-                .setContentText(context.getString(R.string.bluetooth_key_missing_message))
-                .setContentIntent(pairIntent)
-                .setAutoCancel(true)
-                .setDefaults(Notification.DEFAULT_SOUND)
-                .setColor(
-                        context.getColor(
-                                com.android.internal.R.color.system_notification_accent_color));
-
-        nm.notify(NOTIFICATION_ID, builder.build());
     }
 }

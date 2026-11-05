@@ -152,12 +152,6 @@ public final class LockScreenSafetySource {
                                 context.getString(R.string.no_screen_lock_issue_action_label),
                                 pendingIntent)
                         .build();
-        // Custom notification deliberately has zero actions
-        final SafetySourceIssue.Notification customNotification =
-                new SafetySourceIssue.Notification.Builder(
-                                context.getString(R.string.no_screen_lock_issue_notification_title),
-                                context.getString(R.string.no_screen_lock_issue_notification_text))
-                        .build();
         return new SafetySourceIssue.Builder(
                         NO_SCREEN_LOCK_ISSUE_ID,
                         context.getString(R.string.no_screen_lock_issue_title),
@@ -167,8 +161,8 @@ public final class LockScreenSafetySource {
                 .setIssueCategory(SafetySourceIssue.ISSUE_CATEGORY_DEVICE)
                 .addAction(action)
                 .setIssueActionability(SafetySourceIssue.ISSUE_ACTIONABILITY_MANUAL)
-                .setCustomNotification(customNotification)
-                .setNotificationBehavior(SafetySourceIssue.NOTIFICATION_BEHAVIOR_DELAYED)
+                // Simple Phone: only list the issue in Safety Center, never notify about it.
+                .setNotificationBehavior(SafetySourceIssue.NOTIFICATION_BEHAVIOR_NEVER)
                 .build();
     }
 }

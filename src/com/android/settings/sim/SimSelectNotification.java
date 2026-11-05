@@ -25,10 +25,6 @@ import static android.telephony.TelephonyManager.EXTRA_DEFAULT_SUBSCRIPTION_SELE
 import static android.telephony.TelephonyManager.EXTRA_DEFAULT_SUBSCRIPTION_SELECT_TYPE_DATA;
 import static android.telephony.TelephonyManager.EXTRA_DEFAULT_SUBSCRIPTION_SELECT_TYPE_DISMISS;
 import static android.telephony.TelephonyManager.EXTRA_DEFAULT_SUBSCRIPTION_SELECT_TYPE_NONE;
-import static android.telephony.TelephonyManager.EXTRA_SIM_COMBINATION_NAMES;
-import static android.telephony.TelephonyManager.EXTRA_SIM_COMBINATION_WARNING_TYPE;
-import static android.telephony.TelephonyManager.EXTRA_SIM_COMBINATION_WARNING_TYPE_DUAL_CDMA;
-import static android.telephony.TelephonyManager.EXTRA_SIM_COMBINATION_WARNING_TYPE_NONE;
 import static android.telephony.TelephonyManager.EXTRA_SUBSCRIPTION_ID;
 import static android.telephony.data.ApnSetting.TYPE_MMS;
 
@@ -53,7 +49,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.settings.HelpTrampoline;
 import com.android.settings.R;
 import com.android.settings.network.SatelliteRepository;
 import com.android.settings.network.SubscriptionUtil;
@@ -72,23 +67,11 @@ public class SimSelectNotification extends BroadcastReceiver {
     private static final int DEFAULT_TIMEOUT_MS = 1000;
 
     @VisibleForTesting
-    public static final int SIM_SELECT_NOTIFICATION_ID = 1;
-    @VisibleForTesting
     public static final int ENABLE_MMS_NOTIFICATION_ID = 2;
-    @VisibleForTesting
-    public static final int SIM_WARNING_NOTIFICATION_ID = 3;
-
-    @VisibleForTesting
-    public static final String SIM_SELECT_NOTIFICATION_CHANNEL =
-            "sim_select_notification_channel";
 
     @VisibleForTesting
     public static final String ENABLE_MMS_NOTIFICATION_CHANNEL =
             "enable_mms_notification_channel";
-
-    @VisibleForTesting
-    public static final String SIM_WARNING_NOTIFICATION_CHANNEL =
-            "sim_warning_notification_channel";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -199,7 +182,6 @@ public class SimSelectNotification extends BroadcastReceiver {
                 Log.i(TAG, "Device is not in a satellite session. Handle primary"
                         + " subscription list changes");
                 startSimSelectDialogIfNeeded(context, intent);
-                sendSimCombinationWarningIfNeeded(context, intent);
             }
         }
     }
@@ -212,17 +194,11 @@ public class SimSelectNotification extends BroadcastReceiver {
             return;
         }
 
-        // Cancel any previous notifications
-        cancelSimSelectNotification(context);
-
         // If the dialog type is to dismiss.
         if (dialogType == EXTRA_DEFAULT_SUBSCRIPTION_SELECT_TYPE_DISMISS) {
             SimDialogProhibitService.dismissDialog(context);
             return;
         }
-
-        // Create a notification to tell the user that some defaults are missing
-        createSimSelectNotification(context);
 
         if (dialogType == EXTRA_DEFAULT_SUBSCRIPTION_SELECT_TYPE_ALL) {
             int subId = intent.getIntExtra(EXTRA_SUBSCRIPTION_ID,
@@ -242,52 +218,6 @@ public class SimSelectNotification extends BroadcastReceiver {
             newIntent.putExtra(SimDialogActivity.DIALOG_TYPE_KEY, SimDialogActivity.DATA_PICK);
             context.startActivity(newIntent);
         }
-    }
-
-    private static void sendSimCombinationWarningIfNeeded(Context context, Intent intent) {
-        final int warningType = intent.getIntExtra(EXTRA_SIM_COMBINATION_WARNING_TYPE,
-                EXTRA_SIM_COMBINATION_WARNING_TYPE_NONE);
-
-        // Cancel any previous notifications
-        cancelSimCombinationWarningNotification(context);
-
-        if (warningType == EXTRA_SIM_COMBINATION_WARNING_TYPE_DUAL_CDMA) {
-            // Create a notification to tell the user that there's a sim combination warning.
-            createSimCombinationWarningNotification(context, intent);
-        }
-    }
-
-    private static void createSimSelectNotification(Context context) {
-        final Resources resources = context.getResources();
-
-        NotificationChannel notificationChannel = new NotificationChannel(
-                SIM_SELECT_NOTIFICATION_CHANNEL,
-                resources.getText(R.string.sim_selection_channel_title),
-                NotificationManager.IMPORTANCE_LOW);
-
-        Notification.Builder builder =
-                new Notification.Builder(context, SIM_SELECT_NOTIFICATION_CHANNEL)
-                        .setSmallIcon(R.drawable.ic_sim_alert)
-                        .setColor(context.getColor(R.color.sim_noitification))
-                        .setContentTitle(resources.getText(R.string.sim_notification_title))
-                        .setContentText(resources.getText(R.string.sim_notification_summary))
-                        .setAutoCancel(true);
-        Intent resultIntent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
-        resultIntent.setPackage(SETTINGS_PACKAGE_NAME);
-        resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        builder.setContentIntent(resultPendingIntent);
-        NotificationManager notificationManager =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.createNotificationChannel(notificationChannel);
-        notificationManager.notify(SIM_SELECT_NOTIFICATION_ID, builder.build());
-    }
-
-    public static void cancelSimSelectNotification(Context context) {
-        NotificationManager notificationManager =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(SIM_SELECT_NOTIFICATION_ID);
     }
 
     private void createEnableMmsNotification(Context context, CharSequence titleString,
@@ -327,52 +257,5 @@ public class SimSelectNotification extends BroadcastReceiver {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(ENABLE_MMS_NOTIFICATION_ID);
-    }
-
-    private static void createSimCombinationWarningNotification(Context context, Intent intent) {
-        final Resources resources = context.getResources();
-        final String simNames = intent.getStringExtra(EXTRA_SIM_COMBINATION_NAMES);
-
-        if (simNames == null) {
-            return;
-        }
-
-        CharSequence dualCdmaSimWarningSummary = resources.getString(
-                R.string.dual_cdma_sim_warning_notification_summary, simNames);
-
-        NotificationChannel notificationChannel = new NotificationChannel(
-                SIM_WARNING_NOTIFICATION_CHANNEL,
-                resources.getText(R.string.dual_cdma_sim_warning_notification_channel_title),
-                NotificationManager.IMPORTANCE_HIGH);
-
-        Notification.Builder builder =
-                new Notification.Builder(context, SIM_WARNING_NOTIFICATION_CHANNEL)
-                        .setSmallIcon(R.drawable.ic_sim_alert)
-                        .setColor(context.getColor(R.color.sim_noitification))
-                        .setContentTitle(resources.getText(
-                                R.string.sim_combination_warning_notification_title))
-                        .setContentText(dualCdmaSimWarningSummary)
-                        .setStyle(new Notification.BigTextStyle().bigText(
-                                dualCdmaSimWarningSummary))
-                        .setAutoCancel(true);
-
-        // Create the pending intent that will lead to the helper page.
-        Intent resultIntent = new Intent(context, HelpTrampoline.class);
-        resultIntent.putExtra(Intent.EXTRA_TEXT, "help_uri_sim_combination_warning");
-
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        builder.setContentIntent(resultPendingIntent);
-
-        NotificationManager notificationManager =
-                context.getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(notificationChannel);
-        notificationManager.notify(SIM_WARNING_NOTIFICATION_ID, builder.build());
-    }
-
-    public static void cancelSimCombinationWarningNotification(Context context) {
-        NotificationManager notificationManager =
-                context.getSystemService(NotificationManager.class);
-        notificationManager.cancel(SIM_WARNING_NOTIFICATION_ID);
     }
 }
